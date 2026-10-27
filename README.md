@@ -4,7 +4,7 @@ This is a Chrome Manifest V3 extension. JavaScript is in `app.js` (not inline), 
 
 ## Preview
 
-![Custom Chrome Launchpad Screenshot](screenshots/screenshot1.png)
+![Custom Chrome Launchpad Screenshot](screenshots/launchpad.webp)
 
 ## Install / update
 
