@@ -49,7 +49,7 @@ function iconNode(item, small=false){
 }
 function updateHeader(){
  const h=new Date().getHours();
- $("greeting").textContent=h<12?"Good morning Milan.":h<18?"Good afternoon Milan.":"Good evening Milan.";
+ $("greeting").textContent=h<12?"Good morning.":h<18?"Good afternoon.":"Good evening.";
  $("date").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",year:"numeric"});
  document.title=(settings.title||"My Start Page");
  document.querySelector(".eyebrow").textContent=(settings.title||"Your personal launchpad").toUpperCase();

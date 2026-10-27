@@ -1,18 +1,19 @@
-# My Offline Start Page — v2
+# Offline Chrome New Tab Launchpad
 
 This is a Chrome Manifest V3 extension. JavaScript is in `app.js` (not inline), so it complies with Chrome extension Content Security Policy.
 
 ## Install / update
+
 1. Extract this ZIP to a permanent folder.
 2. Open `chrome://extensions` in Chrome.
-3. If the previous version is installed, either remove it first or use **Reload** after replacing the old files. To update safely, export your links first.
-4. Enable **Developer mode**.
-5. Click **Load unpacked** and select the `offline_start_page_v2` folder that contains `manifest.json`.
-6. Open a new tab.
+3. Enable **Developer mode**.
+4. Click **Load unpacked** and select the `offline_start_page_v2` folder that contains `manifest.json`.
+5. Open a new tab.
 
 **Important:** If Chrome already has the old extension loaded from another folder, it will keep using that old folder until you load this one or replace its files and click Reload.
 
 ## Features
+
 - Add, edit, delete and search shortcuts.
 - Move shortcuts into a hidden section at the bottom of the page, or add them there directly.
 - Category grouping; rename and move categories.
@@ -26,6 +27,7 @@ This is a Chrome Manifest V3 extension. JavaScript is in `app.js` (not inline), 
 - JSON export/import backup.
 
 ## Offline behavior
-The dashboard, saved links, to-do items, layout settings, and emoji fallbacks work offline. Website favicon retrieval and the websites themselves may require internet. For fully offline images, keep image files inside this extension folder and use relative paths, e.g. `icons/github.png`. Background images can also use a relative path.
 
-Link data is stored in this Chrome profile's local storage using the same key as v1 (`offlineStartPage.links.v1`) to attempt to preserve your previous saved links. Export a backup before replacing extensions or clearing Chrome data.
+The dashboard, saved links, to-do items, layout settings, and emoji fallbacks work offline. Website favicon retrieval and the websites themselves may require internet. For fully offline images, keep image files inside this extension folder and use relative paths, e.g. `logos/github.png`. Background images can also use a relative path `bg/mauntains.png`.
+
+Link data is stored in this Chrome profile's local storage using the key as (`offlineStartPage.links.v1`) to attempt to preserve your previous saved links. Export a backup before replacing extensions or clearing Chrome data.
