@@ -2,15 +2,17 @@
 
 This is a Chrome Manifest V3 extension. JavaScript is in `app.js` (not inline), so it complies with Chrome extension Content Security Policy.
 
+## Preview
+
+![Custom Chrome Launchpad Screenshot](screenshots/screenshot1.png)
+
 ## Install / update
 
-1. Extract this ZIP to a permanent folder.
+1. Download and extract this ZIP to a permanent folder.
 2. Open `chrome://extensions` in Chrome.
 3. Enable **Developer mode**.
-4. Click **Load unpacked** and select the `offline_start_page_v2` folder that contains `manifest.json`.
+4. Click **Load unpacked** and select the `custom-chrome-launchpad-main` folder that contains `manifest.json`.
 5. Open a new tab.
-
-**Important:** If Chrome already has the old extension loaded from another folder, it will keep using that old folder until you load this one or replace its files and click Reload.
 
 ## Features
 
@@ -28,6 +30,6 @@ This is a Chrome Manifest V3 extension. JavaScript is in `app.js` (not inline), 
 
 ## Offline behavior
 
-The dashboard, saved links, to-do items, layout settings, and emoji fallbacks work offline. Website favicon retrieval and the websites themselves may require internet. For fully offline images, keep image files inside this extension folder and use relative paths, e.g. `logos/github.png`. Background images can also use a relative path `bg/mauntains.png`.
+The dashboard, saved links, to-do items, layout settings, and emoji fallbacks work offline. Website favicon retrieval and the websites themselves may require internet. For fully offline images, keep image files inside this extension folder and use relative paths, e.g. `logos/github.png`. Background images can also use a relative path `bg/mountains.png`.
 
 Link data is stored in this Chrome profile's local storage using the key as (`offlineStartPage.links.v1`) to attempt to preserve your previous saved links. Export a backup before replacing extensions or clearing Chrome data.
