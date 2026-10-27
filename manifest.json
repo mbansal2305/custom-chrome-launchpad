@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "My Offline Start Page",
+  "version": "2.0.0",
+  "description": "A customizable, offline-friendly new tab dashboard.",
+  "permissions": [
+    "storage"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}

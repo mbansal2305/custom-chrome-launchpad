@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Start Page</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">YOUR PERSONAL LAUNCHPAD</div>
+      <h1 id="greeting">Good day.</h1>
+      <div id="date" class="muted"></div>
+    </div>
+    <div class="toolbar">
+      <button id="themeBtn" type="button" title="Toggle light/dark theme">◐ Theme</button>
+      <button id="editBtn" type="button" title="Toggle edit mode">✎ Edit mode</button>
+      <button id="settingsBtn" type="button">⚙ Customize</button>
+      <button id="addBtn" class="primary" type="button">＋ Add link</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <section class="main-column" aria-label="Links">
+      <form id="searchForm" class="search-wrap">
+        <span class="search-symbol">⌕</span>
+        <input id="search" type="search" placeholder="Search your links, or type anything and press Enter…" autocomplete="off" aria-label="Search links">
+        <kbd>Enter</kbd>
+      </form>
+
+      <div id="quickbar" class="quickbar" aria-label="Quick shortcuts"></div>
+      <div id="links"></div>
+      <section id="hiddenSection" class="hidden-section" aria-labelledby="hiddenTitle" hidden>
+        <div class="category-head">
+          <h2 id="hiddenTitle">Hidden</h2>
+          <span id="hiddenCount" class="category-count">0</span>
+          <button id="hiddenToggle" class="hidden-toggle" type="button" aria-label="Show hidden links" aria-expanded="false" aria-controls="hiddenLinks" title="Show hidden links">👁</button>
+        </div>
+        <div id="hiddenLinks" class="grid"></div>
+      </section>
+      <div id="emptyState" class="empty" hidden>No links found. Click <b>Add link</b> to create one.</div>
+    </section>
+
+    <aside class="planner" aria-label="To-do list">
+      <section class="planner-section" aria-labelledby="todoHeading">
+        <div class="planner-heading">
+          <h2 id="todoHeading">To-do</h2>
+          <span id="todoCount" class="planner-count">0/0</span>
+        </div>
+        <form id="todoForm" class="todo-form">
+          <input id="todoId" type="hidden">
+          <label class="visually-hidden" for="todoText">To-do item</label>
+          <div class="todo-entry">
+            <input id="todoText" required maxlength="120" placeholder="Add a task…">
+            <label class="visually-hidden" for="todoPriority">Priority</label>
+            <select id="todoPriority" aria-label="Task priority">
+              <option value="low">Low priority</option>
+              <option value="medium" selected>Medium priority</option>
+              <option value="high">High priority</option>
+            </select>
+          </div>
+          <div class="planner-form-actions">
+            <button id="todoSubmit" class="primary" type="submit">Add task</button>
+            <button id="todoCancel" type="button" hidden>Cancel</button>
+          </div>
+        </form>
+        <ul id="todoList" class="planner-list"></ul>
+        <p id="todoEmpty" class="planner-empty">Your list is clear.</p>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <span>Saved in this Chrome profile · Dashboard works offline</span>
+    <div class="footer-actions">
+      <button id="exportBtn" type="button">Export backup</button>
+      <button id="importBtn" type="button">Import backup</button>
+      <input id="importFile" type="file" accept="application/json,.json" hidden>
+    </div>
+  </footer>
+</main>
+
+<dialog id="linkDialog" class="dialog">
+  <form id="linkForm">
+    <div class="dialog-heading"><div><div class="eyebrow">SHORTCUT</div><h2 id="linkDialogTitle">Add a link</h2></div><button type="button" class="icon-button" data-close="linkDialog">×</button></div>
+    <input type="hidden" id="linkId">
+    <label>Display name<input id="name" required maxlength="80" placeholder="GitHub"></label>
+    <label>Website URL<input id="url" required type="text" inputmode="url" placeholder="https://github.com"></label>
+    <label>Category<input id="category" required maxlength="50" list="categories" placeholder="Development"></label>
+    <datalist id="categories"></datalist>
+    <div class="two-col">
+      <label>Emoji / fallback icon<input id="icon" maxlength="12" placeholder="🐙"></label>
+      <label>Icon style<select id="iconMode"><option value="auto">Website favicon</option><option value="emoji">Emoji only</option><option value="image">Custom image</option></select></label>
+    </div>
+    <label>Custom image path or data URL <span class="muted inline">(optional)</span><input id="image" placeholder="icons/github.png"></label>
+    <label class="check-label"><input id="hidden" type="checkbox"> Add to hidden section</label>
+    <p class="hint">For offline image icons, place an image inside the extension folder and enter its relative path, e.g. icons/github.png. Website favicons may need internet; emoji fallbacks work offline.</p>
+    <div class="dialog-actions"><button type="button" data-close="linkDialog">Cancel</button><button class="primary" type="submit">Save link</button></div>
+  </form>
+</dialog>
+
+<dialog id="settingsDialog" class="dialog">
+  <form id="settingsForm">
+    <div class="dialog-heading"><div><div class="eyebrow">PERSONALIZE</div><h2>Dashboard settings</h2></div><button type="button" class="icon-button" data-close="settingsDialog">×</button></div>
+    <label>Page title<input id="pageTitle" maxlength="60" placeholder="Your personal launchpad"></label>
+    <label>Background image URL or local path<input id="backgroundImage" placeholder="images/background.jpg"></label>
+    <label>Background overlay <span id="overlayValue" class="muted inline">35%</span><input id="overlay" type="range" min="0" max="85" step="5" value="35"></label>
+    <label>Tile size<select id="tileSize"><option value="compact">Compact</option><option value="comfortable">Comfortable</option><option value="large">Large</option></select></label>
+    <label>Quick favorites <span class="muted inline">Number of starred shortcuts shown at top</span><select id="quickCount"><option value="0">Hide favorites row</option><option value="4">4 favorites</option><option value="6">6 favorites</option><option value="8">8 favorites</option></select></label>
+    <div class="dialog-actions"><button type="button" data-close="settingsDialog">Cancel</button><button class="primary" type="submit">Save settings</button></div>
+  </form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js" defer></script>
+</body>
+</html>

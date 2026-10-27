@@ -1,0 +1,31 @@
+# My Offline Start Page — v2
+
+This is a Chrome Manifest V3 extension. JavaScript is in `app.js` (not inline), so it complies with Chrome extension Content Security Policy.
+
+## Install / update
+1. Extract this ZIP to a permanent folder.
+2. Open `chrome://extensions` in Chrome.
+3. If the previous version is installed, either remove it first or use **Reload** after replacing the old files. To update safely, export your links first.
+4. Enable **Developer mode**.
+5. Click **Load unpacked** and select the `offline_start_page_v2` folder that contains `manifest.json`.
+6. Open a new tab.
+
+**Important:** If Chrome already has the old extension loaded from another folder, it will keep using that old folder until you load this one or replace its files and click Reload.
+
+## Features
+- Add, edit, delete and search shortcuts.
+- Move shortcuts into a hidden section at the bottom of the page, or add them there directly.
+- Category grouping; rename and move categories.
+- Drag-and-drop link reordering while Edit mode is enabled; drag a link into another category grid to move it.
+- Favorites row (star/unstar links).
+- Right-side editable to-do list with checkboxes and color-coded low, medium, and high priorities; tasks are saved locally and included in backups.
+- Website favicon with emoji fallback; emoji-only or custom image path mode.
+- Light/dark theme.
+- Custom page title, background image/path, overlay, tile sizing, favorite row count.
+- Keyboard shortcuts: `/` focus search, `A` add link, `E` toggle edit mode, `T` toggle theme, `Esc` close dialogs.
+- JSON export/import backup.
+
+## Offline behavior
+The dashboard, saved links, to-do items, layout settings, and emoji fallbacks work offline. Website favicon retrieval and the websites themselves may require internet. For fully offline images, keep image files inside this extension folder and use relative paths, e.g. `icons/github.png`. Background images can also use a relative path.
+
+Link data is stored in this Chrome profile's local storage using the same key as v1 (`offlineStartPage.links.v1`) to attempt to preserve your previous saved links. Export a backup before replacing extensions or clearing Chrome data.
